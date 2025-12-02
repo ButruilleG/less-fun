@@ -40,4 +40,13 @@ export function onTabUpdated(tabId, changeInfo, tab, config) {
       files: ['reddit/politics-filter.js']
     });
   }
+
+  if (config.hideExpandoButtons && tab.url.includes('reddit.com')) {
+    console.log('Less-Fun: Hiding expando buttons');
+
+    chrome.scripting.executeScript({
+      target: { tabId: tabId },
+      files: ['reddit/hide-expando.js']
+    });
+  }
 }
