@@ -1,6 +1,6 @@
 (async function() {
   'use strict';
-  console.log("Less-Fun extension: content script loaded");
+  console.log("Less-Fun extension: politics-filter.js loaded");
 
   const subredditBlocklist = await fetch(chrome.runtime.getURL('reddit/political-subreddits.txt'))
     .then(response => response.text())
