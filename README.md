@@ -1,4 +1,4 @@
-# Reddit Bad Popup
+# less-fun
 
 Simple Chrome extension that makes time-wasting sites less fun to use
 Installation (developer mode):
