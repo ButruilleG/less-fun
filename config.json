@@ -4,7 +4,6 @@
     "youtube": true
   },
   "reddit": {
-    "redirectOldReddit": true,
     "blockThumbnails": true,
     "blockExternalPreviews": true,
     "blockPolitics": true,

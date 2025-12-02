@@ -1,10 +1,3 @@
-const REDIRECT_RULE = {
-  id: 1,
-  priority: 1,
-  action: { type: 'redirect', redirect: { transform: { host: 'old.reddit.com' } } },
-  condition: { urlFilter: '||www.reddit.com', resourceTypes: ['main_frame'] }
-};
-
 const BLOCK_THUMBNAILS_RULE = {
   id: 2,
   priority: 1,
@@ -21,7 +14,6 @@ const BLOCK_EXTERNAL_PREVIEWS_RULE = {
 
 export function init(config) {
   const rulesToAdd = [];
-  if (config.redirectOldReddit) rulesToAdd.push(REDIRECT_RULE);
   if (config.blockThumbnails) rulesToAdd.push(BLOCK_THUMBNAILS_RULE);
   if (config.blockExternalPreviews) rulesToAdd.push(BLOCK_EXTERNAL_PREVIEWS_RULE);
 

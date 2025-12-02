@@ -25,6 +25,7 @@
   }
 
   function processEntries() {
+    // Old Reddit entries
     const entries = document.querySelectorAll('div.entry.unvoted');
     for (const entry of entries) {
       const titleElement = entry.querySelector('a.title');
@@ -38,7 +39,6 @@
       // subreddit text is like "r/subreddit", so we slice off "r/"
       const subreddit = subredditElement.innerText.substring(2);
 
-
       if (isRagebait(title, subreddit)) {
         // Check if the title has already been replaced
         if (!entry.querySelector('.ragebait-replaced')) {
@@ -46,6 +46,47 @@
           titleElement.innerHTML = '<span class="ragebait-replaced">probably ragebait</span>';
           titleElement.insertAdjacentHTML('afterend', `<!-- ${originalTitle} -->`);
         }
+      }
+    }
+
+    // New Reddit: posts in feeds (e.g. /r/all) often have anchor titles like:
+    // <a href="/r/politics/comments/..." id="post-title-t3_<id>" ...>Title</a>
+    const newTitleAnchors = document.querySelectorAll('a[id^="post-title-t3_"]');
+    for (const anchor of newTitleAnchors) {
+      // avoid double-processing
+      if (anchor.dataset.ragebaitProcessed) continue;
+
+      const title = anchor.innerText && anchor.innerText.trim();
+      if (!title) continue;
+
+      // Attempt to determine subreddit from href (/r/<subreddit>/...)
+      let subreddit = null;
+      const href = anchor.getAttribute('href') || '';
+      const m = href.match(/^\/r\/([^\/]+)/);
+      if (m) subreddit = m[1];
+
+      // Fallback: look for a nearby subreddit link inside the same post container
+      if (!subreddit) {
+        const container = anchor.closest('[data-testid="post-container"]') || anchor.closest('.Post');
+        if (container) {
+          const srLink = container.querySelector('a[href^="/r/"]');
+          if (srLink) {
+            const mh = srLink.getAttribute('href').match(/^\/r\/([^\/]+)/);
+            if (mh) subreddit = mh[1];
+          }
+        }
+      }
+
+      if (!subreddit) {
+        // if still unknown, skip — conservative approach
+        continue;
+      }
+
+      if (isRagebait(title, subreddit)) {
+        // replace text but keep the element so clicking still navigates (optional)
+        anchor.dataset.ragebaitProcessed = '1';
+        anchor.dataset.originalTitle = encodeURIComponent(anchor.innerHTML);
+        anchor.innerHTML = '<span class="ragebait-replaced">probably ragebait</span>';
       }
     }
   }
