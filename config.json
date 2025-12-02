@@ -1,7 +1,15 @@
 {
-  "redirectOldReddit": true,
-  "blockThumbnails": true,
-  "blockExternalPreviews": true,
-  "enableRagebaitFilter": true,
-  "pauseSmallYoutubeVideos": true
+  "enabled_sites": {
+    "reddit": true,
+    "youtube": true
+  },
+  "reddit": {
+    "redirectOldReddit": true,
+    "blockThumbnails": true,
+    "blockExternalPreviews": true,
+    "enableRagebaitFilter": true
+  },
+  "youtube": {
+    "pauseSmallYoutubeVideos": true
+  }
 }

@@ -6,3 +6,7 @@ Installation (developer mode):
 1. Open `chrome://extensions/` (or `edge://extensions/` in Edge).
 2. Enable "Developer mode" (top-right).
 3. Click "Load unpacked" and select the `reddit-bad-extension` folder in this repository.
+
+# IMPORTANT NOTE
+
+Most of this project was ai-generated, including the "block-ragebait.txt" and the "block-subreddits.txt" files.
