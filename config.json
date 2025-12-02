@@ -6,6 +6,7 @@
   "reddit": {
     "blockThumbnails": true,
     "blockExternalPreviews": true,
+    "redirectToOldReddit": true,
     "blockPolitics": true,
     "hideExpandoButtons": true
   },
