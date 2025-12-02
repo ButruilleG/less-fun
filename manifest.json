@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Less Fun",
+  "name": "Less-Fun",
   "version": "0.1",
   "description": "Makes timewasting sites less fun to use",
     "background": {
@@ -19,9 +19,9 @@
       {
         "resources": [
           "config.json",
-          "block-subreddits.txt",
-          "block-ragebait.txt",
-          "reddit/content.js"
+          "reddit/political-subreddits.txt",
+          "reddit/political-terms.txt",
+          "reddit/politics-filter.js"
         ],
         "matches": [
           "*://*.reddit.com/*"
@@ -30,7 +30,7 @@
       {
         "resources": [
           "config.json",
-          "youtube/content.js"
+          "youtube/disable-video-previews.js"
         ],
         "matches": [
           "*://*.youtube.com/*"

@@ -1,4 +1,4 @@
-# less-fun
+# Less-Fun
 
 Simple Chrome extension that makes time-wasting sites less fun to use
 Installation (developer mode):

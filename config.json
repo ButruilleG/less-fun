@@ -7,9 +7,9 @@
     "redirectOldReddit": true,
     "blockThumbnails": true,
     "blockExternalPreviews": true,
-    "enableRagebaitFilter": true
+    "blockPolitics": true
   },
   "youtube": {
-    "pauseSmallYoutubeVideos": true
+    "disableVideoPreviews": true
   }
 }

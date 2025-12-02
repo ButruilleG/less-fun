@@ -32,12 +32,12 @@ export function init(config) {
 }
 
 export function onTabUpdated(tabId, changeInfo, tab, config) {
-  if (config.enableRagebaitFilter && tab.url.includes('reddit.com')) {
-    console.log('Ragebait filter is enabled for Reddit.');
+  if (config.blockPolitics && tab.url.includes('reddit.com')) {
+    console.log('Less-Fun: Enabling politics filter');
 
     chrome.scripting.executeScript({
       target: { tabId: tabId },
-      files: ['reddit/content.js']
+      files: ['reddit/politics-filter.js']
     });
   }
 }

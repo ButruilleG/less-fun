@@ -3,11 +3,11 @@ export function init(config) {
 }
 
 export function onTabUpdated(tabId, changeInfo, tab, config) {
-  if (config.pauseSmallYoutubeVideos && tab.url.includes('youtube.com')) {
-    console.log('YouTube small video pauser is enabled.');
+  if (config.disableVideoPreviews && tab.url.includes('youtube.com')) {
+    console.log('Less-Fun: Disabling video previews');
     chrome.scripting.executeScript({
       target: { tabId: tabId },
-      files: ['youtube/content.js']
+      files: ['youtube/disable-video-previews.js']
     });
   }
 }
