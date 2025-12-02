@@ -20,8 +20,7 @@
         "resources": [
           "config.json",
           "reddit/political-subreddits.txt",
-          "reddit/political-terms.txt",
-          "reddit/politics-filter.js"
+          "reddit/political-terms.txt"
         ],
         "matches": [
           "*://*.reddit.com/*"
@@ -29,8 +28,7 @@
       },
       {
         "resources": [
-          "config.json",
-          "youtube/disable-video-previews.js"
+          "config.json"
         ],
         "matches": [
           "*://*.youtube.com/*"

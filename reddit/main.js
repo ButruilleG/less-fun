@@ -32,21 +32,24 @@ export function init(config) {
 }
 
 export function onTabUpdated(tabId, changeInfo, tab, config) {
-  if (config.blockPolitics && tab.url.includes('reddit.com')) {
-    console.log('Less-Fun: Enabling politics filter');
+  const scriptsToInject = [];
 
-    chrome.scripting.executeScript({
-      target: { tabId: tabId },
-      files: ['reddit/politics-filter.js']
-    });
+  if (tab.url && tab.url.includes('reddit.com')) {
+    if (config.blockPolitics) {
+      console.log('Less-Fun: Enabling politics filter');
+      scriptsToInject.push('reddit/politics-filter.js');
+    }
+
+    if (config.hideExpandoButtons) {
+      console.log('Less-Fun: Hiding expando buttons');
+      scriptsToInject.push('reddit/hide-expando.js');
+    }
   }
 
-  if (config.hideExpandoButtons && tab.url.includes('reddit.com')) {
-    console.log('Less-Fun: Hiding expando buttons');
-
+  if (scriptsToInject.length > 0) {
     chrome.scripting.executeScript({
       target: { tabId: tabId },
-      files: ['reddit/hide-expando.js']
+      files: scriptsToInject
     });
   }
 }
