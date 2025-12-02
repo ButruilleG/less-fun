@@ -1,0 +1,34 @@
+# US Politicians (case-insensitive)
+\b(donald\s)?trump\b
+\b(joe\s)?biden\b
+\b(barack\s)?obama\b
+\b(hillary\s|bill\s)?clinton\b
+\bbernie(\ssanders)?\b
+\baoc\b
+\bnancy\s?pelosi\b
+\bmitch\s?mcconnell\b
+\bkamala(\sharris)?\b
+\b(ron\s)?desantis\b
+
+# General Political Parties & Ideologies
+\brepublican(s)?|gop\b
+\bdemocrat(s)?|dems\b
+\b(liberal|conservative|libertarian|socialis(t|m))\b
+\b(left-wing|right-wing|alt-right)\b
+\bwoke\b
+
+# Contentious Topics
+\b(abortion|pro-choice|pro-life|roe\sv\swade)\b
+\b(gun\scontrol|2nd\samendment|nra)\b
+\b(immigra(tion|nts)|border)\b
+\b(climate\schange|global\swarming)\b
+\b(racis(m|t)|blm|black\slives\smatter)\b
+\b(police|defund|acab)\b
+\b(vaccine(s)?|vax|anti-vax|mandate)\b
+\b(election|voting|voter\sfraud)\b
+\b(supreme\scourt|scotus)\b
+\b(israel|palestine|gaza)\b
+\b(ukraine|russia)\b
+\b(feminism|feminist|patriarchy)\b
+\btrans(gender)?\b
+\b(covid|coronavirus|lockdown)\b

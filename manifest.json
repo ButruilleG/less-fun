@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Less Fun",
+  "version": "0.1",
+  "description": "Makes timewasting sites less fun to use",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "declarativeNetRequest",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.reddit.com/*",
+    "*://*.youtube.com/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "block-subreddits.txt",
+        "block-ragebait.txt",
+        "config.json",
+        "youtube-pause.js",
+        "sabotage-reddit-ragebait.js"
+      ],
+      "matches": [
+        "*://*.reddit.com/*",
+        "*://*.youtube.com/*"
+      ]
+    }
+  ]
+}

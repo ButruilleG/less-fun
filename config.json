@@ -1,0 +1,7 @@
+{
+  "redirectOldReddit": true,
+  "blockThumbnails": true,
+  "blockExternalPreviews": true,
+  "enableRagebaitFilter": true,
+  "pauseSmallYoutubeVideos": true
+}
