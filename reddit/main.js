@@ -14,7 +14,7 @@ const BLOCK_EXTERNAL_PREVIEWS_RULE = {
 
 // Redirect `www.reddit.com` top-level navigations to `old.reddit.com`
 const REDIRECT_TO_OLD_REDDIT_RULE = {
-  id: 4,
+  id: 41,
   priority: 1,
   action: {
     type: 'redirect',
@@ -29,11 +29,22 @@ const REDIRECT_TO_OLD_REDDIT_RULE = {
 
 // Allow reddit.com/media links to remain unchanged by giving them a higher priority.
 const RETAIN_REDDIT_MEDIA_RULE = {
-  id: 5,
+  id: 42,
   priority: 2, // Higher priority
   action: { type: 'allow' },
   condition: {
     urlFilter: '||www.reddit.com/media',
+    resourceTypes: ['main_frame']
+  }
+};
+
+// Allow reddit.com/gallery links to remain unchanged by giving them a higher priority.
+const RETAIN_REDDIT_GALLERY_RULE = {
+  id: 43,
+  priority: 2, // Higher priority
+  action: { type: 'allow' },
+  condition: {
+    urlFilter: '||www.reddit.com/gallery',
     resourceTypes: ['main_frame']
   }
 };
@@ -43,6 +54,7 @@ export function init(config) {
   if (config.redirectToOldReddit) {
     rulesToAdd.push(REDIRECT_TO_OLD_REDDIT_RULE);
     rulesToAdd.push(RETAIN_REDDIT_MEDIA_RULE);
+    rulesToAdd.push(RETAIN_REDDIT_GALLERY_RULE);
   }
   if (config.blockThumbnails) rulesToAdd.push(BLOCK_THUMBNAILS_RULE);
   if (config.blockExternalPreviews) rulesToAdd.push(BLOCK_EXTERNAL_PREVIEWS_RULE);
